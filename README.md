@@ -44,7 +44,7 @@ brew install kafkacat
 ```
 docker-compose -f full-stack.yml up
 ```
-** Note that when you run kafka full-stack yml, navigate to correct directory where the full-stack.yml file is placed. **
+**Note that when you run kafka full-stack yml, navigate to correct directory where the full-stack.yml file is placed.**
 
 ### Stop kafka full-stack
 ```
@@ -63,25 +63,25 @@ Kafkacat –C –b localhost:9092 –t test
 
 ## What was the issue?
 
-• In kafkacat command there is an option –b.
+*In kafkacat command there is an option –b.*
 
 This option is for listening/binding address and for our testing environment, the binding address is localhost or 127.0.0.1
 
-• And no need to create specified Topic.
+*And no need to create specified Topic.*
 
 The topic is automatically created when we create the Producer with option –t and Customer can connect to this topic.
 
-• When we run the “docker-compose –f full-stack.yml up”, need to make sure that previously downed this composer.
+*When we run the “docker-compose –f full-stack.yml up”, need to make sure that previously downed this composer.*
 
 So, when we can see an error in composer log after run “docker-compose –f full-stack.yml up”, you can repair this by simply run “docker-compose –f full-stack.yml down”.
 
-* The most important thing is to install Docker correctly.*
+***The most important thing is to install Docker correctly.***
 
 Please don’t miss to install docker dependency packages correctly and as important as User for the Docker.
 Explained at the top steps above.
  
 ## New Issue
-• Can not read records in Topics in Kafka UI
+**Can not read records in Topics in Kafka UI**
 
 When customer connect on UI via port 8000, if click one topic, can not read records in that topic even a few records are there as well as a lot of topic.
 
@@ -111,13 +111,14 @@ In kafka-rest-proxy:
 ```
 KAFKA_REST_CONSUMER_REQUEST_TIMEOUT_MS: 30000
 ```
-* This is for the case of kafka rest proxy is not respoding *
+*This is for the case of kafka rest proxy is not respoding*
 In kafka-topic-ui:
 ```
 MAX_BYTES: 50000
-   		RECORD_POLL_TIMEOUT: 5000
-		This is the case of there are a lot of kafka records.
+RECORD_POLL_TIMEOUT: 5000
 ```
+*This is the case of there are a lot of kafka records.*
+
 In Addition:
 
 We run the kafka very simply using the full-stack.yml configuration file.
